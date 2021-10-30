@@ -104,3 +104,27 @@ sr.reveal(".category__data, .trick__content, .footer__container", {
 });
 sr.reveal(".about__data, .discount__img", { origin: "left" });
 sr.reveal(".about__img, .discount__data", { origin: "right" });
+
+/*=============== Dark Mode ===============*/
+const botonSwitch = document.querySelector("#switch");
+
+botonSwitch.addEventListener("click", () => {
+  document.body.classList.toggle("dark-mode");
+  botonSwitch.classList.toggle("active");
+
+  //Guardar el modo el localstorage
+  if (document.body.classList.contains("dark-mode")) {
+    localStorage.setItem("dark-mode", "true");
+  } else {
+    localStorage.setItem("dark-mode", "false");
+  }
+});
+
+//Obtener el modo actual
+if (localStorage.getItem("dark-mode") === "true") {
+  document.body.classList.add("dark-mode");
+  botonSwitch.classList.add("active");
+} else {
+  document.body.classList.remove("dark-mode");
+  botonSwitch.classList.remove("active");
+}

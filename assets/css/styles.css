@@ -12,6 +12,8 @@
   --title-color: hsl(var(--hue), 4%, 100%);
   --text-color: hsl(var(--hue), 4%, 85%);
   --text-color-light: hsl(var(--hue), 4%, 55%);
+
+  /*Green Gradient*/
   --body-color: linear-gradient(
     90deg,
     hsl(104, 28%, 40%) 0%,
@@ -50,6 +52,11 @@
   /*========== z index ==========*/
   --z-tooltip: 10;
   --z-fixed: 100;
+}
+
+body.dark-mode {
+  --body-color: hsl(30, 8%, 8%);
+  --container-color: hsl(30, 8%, 35%);
 }
 
 /* Responsive typography */
@@ -228,6 +235,53 @@ button {
 .nav__link:hover {
   color: var(--text-color);
 }
+
+/*DARK MODE*/
+
+.switch {
+  background-color: #343d5b;
+  border-radius: 1000px;
+  border: none;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  outline: none;
+}
+
+.switch::after {
+  content: "";
+  display: block;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  background-color: #f1f1f1;
+  top: 0;
+  left: 0;
+  right: unset;
+  border-radius: 100px;
+  transition: 0.3s ease all;
+  box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.active {
+  background: orange;
+  color: #000;
+}
+
+.active::after {
+  left: unset;
+  right: 0;
+}
+
+span {
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  display: block;
+  background: none;
+  color: #fff;
+}
+
 /* Show menu */
 .show-menu {
   top: 0;
